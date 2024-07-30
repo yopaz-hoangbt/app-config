@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -20,7 +20,7 @@ jobs:
           aws-region: us-east-1
       - name: Sync files to S3 bucket
         run: |
-          aws s3 sync build s3://initial-react-app --delete
+          aws s3 sync ./build s3://initial-react-app --delete
   lint:
     runs-on: ubuntu-latest
 
